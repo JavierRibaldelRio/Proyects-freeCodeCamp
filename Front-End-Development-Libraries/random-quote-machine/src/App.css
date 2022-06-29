@@ -13,19 +13,30 @@
 }
 
 #tweet-quote {
-
   font-size: 15vmin;
+}
+
+#tweet-quote:hover {
+  font-size: 16vmin;
+
 }
 
 #quote-box {
 
-  background-color: rebeccapurple;
 
   width: 80vw;
 
-  height: 65vh;
+  height: 80vh;
 
   display: flex;
+
+  padding: 5vh;
+
+  border: 6vh solid white;
+  border-radius: 2vmin;
+
+  color: white;
+
 
 }
 
@@ -34,10 +45,11 @@
   font-size: 8vh;
   text-align: right;
   display: flex;
-  padding: 10vmin;
 
   justify-content: center;
   align-items: center;
+
+  margin-right: 6vmin;
 
   height: 100%;
   width: 85%;
