@@ -5,17 +5,16 @@ import { Component } from 'react';
 class App extends Component {
 
   constructor(props) {
-    super(props)
-      ; this.state = {
-        colores: [
-          '#663F46', '#00Bb2D', '#e8C138', '#FE5E41', '#344966', '#9D8420',
-          '#E9aaa9', '#355834', '#DF367C', '#FCA17D', '#0F5257', '#CC5803',
-          '#BCD1BA', '#81F495', '#878E88'
-        ],
+    super(props);
 
-        edad: 88
-
-      }
+    //Almacena los posibles colores
+    this.state = {
+      colores: [
+        '#663F46', '#00Bb2D', '#e8C138', '#FE5E41', '#344966', '#9D8420',
+        '#E9aaa9', '#355834', '#DF367C', '#FCA17D', '#0F5257', '#CC5803',
+        '#BCD1BA', '#81F495', '#878E88'
+      ]
+    };
 
     this.numeroAleatorio = this.numeroAleatorio.bind(this);
     this.nuevoColor = this.nuevoColor.bind(this);
