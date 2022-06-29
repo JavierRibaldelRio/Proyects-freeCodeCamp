@@ -58,6 +58,8 @@ class QuoteBox extends Component {
 
 
                 <div id="text">
+
+
                     "{this.state.quote.text}"
 
                 </div>

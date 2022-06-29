@@ -1,3 +1,7 @@
+/*Importamos la funtes de google fonts*/
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 .App {
 
 
@@ -50,7 +54,7 @@
   align-items: center;
 
   margin-right: 6vmin;
-
+  font-family: Pacifico;
   height: 100%;
   width: 85%;
 }
