@@ -21,15 +21,21 @@ class App extends Component {
 
   }
 
+
+  //Devulve un número aleatorio random
   numeroAleatorio(maxim) {
     return Math.floor(Math.random() * maxim);
   }
 
+
+  //Genera un nuevo colro
   nuevoColor() {
 
     this.setState({ color: this.state.colores[this.numeroAleatorio(this.state.colores.length)] });
   }
 
+
+  //Al empezar el componente elige aleatoriamente un color
   componentDidMount() {
 
     this.nuevoColor();
@@ -37,6 +43,8 @@ class App extends Component {
 
   render() {
 
+
+    //Almacena el estilo del color y su animación
     const estilo = {
       backgroundColor: this.state.color,
       transition: "all ease",
@@ -45,10 +53,11 @@ class App extends Component {
     }
 
 
+    //A QuoteBox se elimina la función de cambio de color y de gnerar número aleatorio
 
     return (
       <div className="App container-fluid" style={estilo} >
-        <QuoteBox color={this.state.color} cambioColor={this.nuevoColor} numeroAleatorio={this.numeroAleatorio} />
+        <QuoteBox cambioColor={this.nuevoColor} numeroAleatorio={this.numeroAleatorio} />
       </div>
     );
   }
