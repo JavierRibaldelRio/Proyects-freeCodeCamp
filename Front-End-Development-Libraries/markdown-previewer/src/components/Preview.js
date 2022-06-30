@@ -9,14 +9,9 @@ class Preview extends Component {
     }
     render() {
 
-        const markdown =
-            `Hola **Jpp** ~~Hola~~     `
-
-            ;
-
         return (
             <div id='preview'>
-                <Markdown>{this.props.mark}</Markdown>
+                <Markdown breaks={true}>{this.props.mark}</Markdown>
             </div>
         );
     }
