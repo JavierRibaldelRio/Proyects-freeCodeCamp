@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 
 
-class Markdown extends Component {
+class MarkdownInput extends Component {
     constructor(props) {
         super(props);
     }
@@ -18,4 +18,4 @@ class Markdown extends Component {
     }
 }
 
-export default Markdown;
+export default MarkdownInput;

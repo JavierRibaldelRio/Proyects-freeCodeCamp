@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import Markdown from "marked-react";
 
+
 class Preview extends Component {
     constructor(props) {
         super(props);
@@ -9,14 +10,10 @@ class Preview extends Component {
     }
     render() {
 
-        const markdown =
-            `Hola **Jpp** ~~Hola~~     `
-
-            ;
 
         return (
             <div id='preview'>
-                <Markdown>{this.props.mark}</Markdown>
+                <Markdown breaks={true}>{this.props.mark}</Markdown>
             </div>
         );
     }

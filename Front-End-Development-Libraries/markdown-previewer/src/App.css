@@ -1,3 +1,9 @@
+::root {
+
+  margin: 2vmin;
+}
+
+
 .App {
   text-align: center;
 
@@ -5,14 +11,13 @@
 
   grid-template-columns: 1fr 1fr;
 
-
+  text-align: left;
 }
 
 /*Columnas centrales*/
 #markdown {
 
 
-  background-color: blue;
 
 
   border-right: 0.75vmin black solid;
@@ -20,26 +25,62 @@
 }
 
 #preview {
-  background-color: red;
   border-left: 0.75vmin black solid;
+  padding: 0 4vmax;
 
 }
 
 #markdown,
 #preview {
 
-  height: 200vh;
+  height: auto;
 
 }
 
 #editor {
   resize: none;
-  width: 100%;
+  width: 96%;
   height: 100%;
+  line-height: 2.5vmax;
+  border: 0;
+  outline: none;
+  overflow: hidden;
+
+
 }
 
 img {
 
+  margin: 3vmax;
   height: auto;
-  max-width: 80%;
+  max-width: 50%;
+}
+
+code {
+
+  background-color: #F8F8F8;
+
+
+
+  color: rgb(43, 40, 40);
+  padding: 2vmin;
+  border: 1vmin solid #E7EAED;
+
+  border-radius: 3%;
+
+
+}
+
+p {
+
+  line-height: 4vmax;
+}
+
+#markdown {
+  text-align: center;
+}
+
+textarea :focus {
+  outline: none;
+  border: none;
 }
