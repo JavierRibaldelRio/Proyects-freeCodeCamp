@@ -5,13 +5,7 @@ import React, { Component } from 'react';
 import MarkdownInput from './components/MarkdownInput';
 import Preview from './components/Preview';
 import Cabecera from './components/Cabecera';
-
-
-const Preview = styled.div`
-
-color: blue;
-
-`;
+import styled from 'styled-components';
 
 
 
@@ -40,7 +34,7 @@ class App extends Component {
   render() {
     return (
       <div className="App" >
-
+        <p>Hola</p>
         <Cabecera />
 
         <main>
@@ -48,10 +42,6 @@ class App extends Component {
 
           <Preview mark={this.state.mark} />
         </main>
-
-
-
-
       </div>
     );
   }
