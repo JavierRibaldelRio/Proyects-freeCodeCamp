@@ -1,32 +1,40 @@
-::root {
+:root {
 
-  margin: 2vmin;
+  margin: 0;
+  --tamanyo-borde-central: 0.75vmin
 }
 
 
 .App {
-  text-align: center;
-
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
 
   text-align: left;
 }
 
+
+/*Centro Página*/
+
+main,
+#grid-herramientas {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+}
+
 /*Columnas centrales*/
 #markdown {
+  text-align: center;
 
 
-
-
-  border-right: 0.75vmin black solid;
+  border-right: var(--tamanyo-borde-central, 8vmin) black solid !important;
 
 }
 
 #preview {
-  border-left: 0.75vmin black solid;
+  border-left: var(--tamanyo-borde-central, 8vmin) black !important;
+
   padding: 0 4vmax;
+  background-color: #f1d7c4;
 
 }
 
@@ -34,6 +42,8 @@
 #preview {
 
   height: auto;
+  border-color: black;
+  border-style: none;
 
 }
 
@@ -45,7 +55,13 @@
   border: 0;
   outline: none;
   overflow: hidden;
+}
 
+
+#markdown,
+#editor {
+
+  background-color: #fce5d5;
 
 }
 
@@ -60,27 +76,53 @@ code {
 
   background-color: #F8F8F8;
 
-
-
   color: rgb(43, 40, 40);
   padding: 2vmin;
   border: 1vmin solid #E7EAED;
 
   border-radius: 3%;
 
-
 }
 
 p {
-
   line-height: 4vmax;
 }
 
-#markdown {
-  text-align: center;
-}
+
 
 textarea :focus {
   outline: none;
   border: none;
+}
+
+/*Cabecera*/
+
+header {
+
+  margin: 0;
+  padding: 0;
+
+  background-color: yellowgreen;
+  border-bottom: var(--tamanyo-borde-central, 0, 8vmin) solid black;
+}
+
+#titulo-principal {
+
+  margin: 0;
+  font-size: 4vmax;
+  text-align: center;
+  padding: 1vmax;
+
+}
+
+#grid-herramientas {}
+
+#cruz {
+
+  position: fixed;
+  font-size: 1.5vmax;
+  top: 0;
+  right: 0;
+  margin: 1vmin;
+  text-align: center;
 }

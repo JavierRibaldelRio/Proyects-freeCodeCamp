@@ -4,6 +4,17 @@ import React, { Component } from 'react';
 
 import MarkdownInput from './components/MarkdownInput';
 import Preview from './components/Preview';
+import Cabecera from './components/Cabecera';
+
+
+const Preview = styled.div`
+
+color: blue;
+
+`;
+
+
+
 
 class App extends Component {
 
@@ -14,6 +25,8 @@ class App extends Component {
     this.state = { mark: '# Cabecera 1\n## Cabecera 2\n- Esto es un palabra en **negrita**\n- Esto es un palabra en *cursiva*\n- Esto es un palabra ~~tachada~~\n> Esto es una cita\n \nEsto es un trozo de código: `<div></div>`\n```\nconsole.log("Hola, Markdown");\n```\n ![Esto es una imagen](md.png)\n\nEsta es mi página de [GitHub](https://github.com/JavierRibaldelRio), puedes seguirme, no muerdo ' };
 
     this.cambioTexto = this.cambioTexto.bind(this)
+
+
 
   }
 
@@ -28,9 +41,16 @@ class App extends Component {
     return (
       <div className="App" >
 
-        <MarkdownInput cambio={this.cambioTexto} textoOriginal={this.state.mark} />
+        <Cabecera />
 
-        <Preview mark={this.state.mark} />
+        <main>
+          <MarkdownInput cambio={this.cambioTexto} textoOriginal={this.state.mark} />
+
+          <Preview mark={this.state.mark} />
+        </main>
+
+
+
 
       </div>
     );
