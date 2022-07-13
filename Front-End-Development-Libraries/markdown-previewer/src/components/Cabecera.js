@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import BotonControl from './BotonControl';
+
 class Cabecera extends Component {
     constructor(props) {
         super(props);
@@ -24,7 +26,12 @@ class Cabecera extends Component {
 
                 <div />
 
-                <div id='herramientas'>asfsd</div>
+                <div id='herramientas'>
+
+                    <BotonControl title="Download the .md file" classes="fa-solid fa-download" />
+                    <BotonControl title="Copy the .md" classes="fa-solid fa-copy" />
+
+                </div>
             </div>
 
         </header >);

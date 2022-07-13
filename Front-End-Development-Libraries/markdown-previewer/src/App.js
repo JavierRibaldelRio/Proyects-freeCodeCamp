@@ -5,10 +5,6 @@ import React, { Component } from 'react';
 import MarkdownInput from './components/MarkdownInput';
 import Preview from './components/Preview';
 import Cabecera from './components/Cabecera';
-import styled from 'styled-components';
-
-
-
 
 class App extends Component {
 
@@ -35,6 +31,7 @@ class App extends Component {
     return (
       <div className="App" >
         <Cabecera />
+
 
         <main>
           <MarkdownInput cambio={this.cambioTexto} textoOriginal={this.state.mark} />
