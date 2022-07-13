@@ -100,7 +100,17 @@ textarea :focus {
 header {
 
   margin: 0;
+
   padding: 0;
+
+
+  width: 100%;
+
+
+  position: -webkit-sticky;
+  position: sticky;
+  top: -1px;
+
 
   background-color: yellowgreen;
   border-bottom: var(--tamanyo-borde-central, 0, 8vmin) solid black;
@@ -115,7 +125,6 @@ header {
 
 }
 
-#grid-herramientas {}
 
 #cruz {
 
@@ -125,4 +134,9 @@ header {
   right: 0;
   margin: 1vmin;
   text-align: center;
+}
+
+.centro {
+
+  margin-top: 5vh;
 }
