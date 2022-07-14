@@ -1,0 +1,1 @@
+Cuando no hay contenido se deberioa de ocupar la pantalla entera

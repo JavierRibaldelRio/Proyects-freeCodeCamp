@@ -145,9 +145,24 @@ header {
 
 .boton-control {
 
-  padding: 1vmin;
+  padding: 1.5vmin;
   margin: 0.5vmin;
+  font-size: 3vh;
   border: solid black 0.1vmin;
 
   border-radius: 15%;
+  cursor: pointer;
+  width: 2.7vw;
+
+}
+
+/*Controla los divs que almacenan las herramientas*/
+
+.herramientas {
+
+  display: flex;
+
+  justify-content: center;
+  gap: 4vw;
+
 }
