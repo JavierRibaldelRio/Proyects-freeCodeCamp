@@ -1,7 +1,9 @@
 :root {
-
+  background-color: var(--color-fondo);
   margin: 0;
-  --tamanyo-borde-central: 0.75vmin
+  --tamanyo-borde-central: 0.75vmin;
+
+  --color-fondo: rgb(71, 78, 90);
 }
 
 
@@ -40,8 +42,8 @@ main,
 
 #markdown,
 #preview {
-
   height: auto;
+  min-height: 75vh;
   border-color: black;
   border-style: none;
 
@@ -112,7 +114,7 @@ header {
   top: -1px;
 
 
-  background-color: rgb(71, 78, 90);
+  background-color: var(--color-fondo);
   border-bottom: var(--tamanyo-borde-central, 0, 8vmin) solid black;
 }
 
