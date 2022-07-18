@@ -4,6 +4,8 @@ import BotonControl from './BotonControl';
 
 import textoOriginal from '../Data/TextoOriginal';
 
+import FileSaver from 'file-saver';
+
 class Cabecera extends Component {
     constructor(props) {
         super(props);
@@ -12,6 +14,9 @@ class Cabecera extends Component {
         //Funciones de los botones
         this.eliminarTodo = this.eliminarTodo.bind(this);
         this.reiniciar = this.reiniciar.bind(this);
+        this.copiar = this.copiar.bind(this);
+        this.guardarMD = this.guardarMD.bind(this);
+        this.ayuda = this.ayuda.bind(this);
 
 
         this.ocultar = this.ocultar.bind(this);
@@ -40,7 +45,47 @@ class Cabecera extends Component {
         this.setState({ ocultar: true });
     }
 
+    //Copia el md al porta papeles
+    copiar() {
+
+        navigator.clipboard.writeText(this.props.texto);
+
+    }
+
+    guardarMD() {
+        //Crea el blob que se va a guardar
+
+        const blob = new Blob([this.props.texto], { type: 'text/md' });
+
+        //untitled
+
+        FileSaver.saveAs(blob, 'untitled.md');
+    }
+
+    //Te manda al menu de ayuda
+    ayuda() {
+
+        const enlaceAyuda = "https://www.markdownguide.org/";
+
+        window.open(enlaceAyuda, '_blank');
+
+    }
+
+    maximizarMinizar() {
+
+
+
+    }
+
     render() {
+
+
+
+
+
+        const botonMaxMin = <BotonControl title="" classes="fa-solid " />;
+
+
         return (<header id="Cabecera">
 
             <div id='parte-superior' hidden={this.state.ocultar} >
@@ -53,16 +98,15 @@ class Cabecera extends Component {
 
                     <BotonControl title="Create a new file" classes="fa-solid fa-file" handleClick={this.reiniciar} />
                     <BotonControl title="Remove all the content" classes="fa-solid fa-eraser" handleClick={this.eliminarTodo} />
-                    <BotonControl title="Get Help" classes="fa-solid fa-question" />
-                    <BotonControl title="Maximize" classes="fa-solid fa-maximize" />
+                    <BotonControl title="Get Help" classes="fa-solid fa-question" handleClick={this.ayuda} />
+
 
                 </div>
 
                 <div className='herramientas'>
 
-                    <BotonControl title="Download the .md file" classes="fa-solid fa-download" />
-                    <BotonControl title="Copy the .md" classes="fa-solid fa-copy" />
-                    <BotonControl title="Export to pdf .md" classes="fa-solid fa-file-pdf" />
+                    <BotonControl title="Download the .md file" classes="fa-solid fa-download" handleClick={this.guardarMD} />
+                    <BotonControl title="Copy the .md" classes="fa-solid fa-copy" handleClick={this.copiar} />
 
                 </div>
             </div>

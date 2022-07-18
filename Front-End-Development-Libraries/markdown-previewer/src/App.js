@@ -14,11 +14,13 @@ class App extends Component {
 
     super(props);
 
-    this.state = { mark: textoOriginal };
+    this.state = { mark: textoOriginal, mostrar: true };
 
     this.cambioTextoInput = this.cambioTextoInput.bind(this);
 
     this.editarTexto = this.editarTexto.bind(this);
+
+    this.ocultarMostrar = this.ocultarMostrar.bind(this);
 
 
   }
@@ -38,12 +40,33 @@ class App extends Component {
 
   }
 
+
+  //Ocultar la preview
+
+  ocultarMostrar() {
+
+    //Invierte el valor de mostrar
+    this.setState((state, props) => ({
+
+      mostrar: !state.mostrar
+
+    }));
+
+  }
+
   render() {
+
+    if (this.mostrar === true) {
+
+
+    }
+
+
     return (
       <div className="App" >
 
         {/* Se le introducen una función para poder editar el texto y el texto actual*/}
-        <Cabecera editarTexto={this.editarTexto} texto={this.state.mark} />
+        <Cabecera editarTexto={this.editarTexto} texto={this.state.mark} ocultarMostrar={this.ocultarMostrar} />
 
 
         <main>
