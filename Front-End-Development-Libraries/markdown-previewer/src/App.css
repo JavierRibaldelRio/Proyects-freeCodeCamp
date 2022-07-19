@@ -26,6 +26,7 @@ main,
 /*Columnas centrales*/
 #markdown {
   text-align: center;
+  background-color: #9f9f9f;
 
 
   border-right: var(--tamanyo-borde-central, 8vmin) black solid !important;
@@ -35,9 +36,9 @@ main,
 #preview {
   border-left: var(--tamanyo-borde-central, 8vmin) black !important;
 
+  /*Margen entre  a línea negra y el texto ya formateado*/
   padding: 0 4vmax;
   background-color: #829393;
-
 }
 
 #markdown,
@@ -46,7 +47,6 @@ main,
   min-height: 75vh;
   border-color: black;
   border-style: none;
-
 }
 
 #editor {
@@ -60,12 +60,7 @@ main,
   background: none;
 }
 
-
-#markdown {
-
-  background-color: #9f9f9f;
-
-}
+/*Propiedades Generales de la previsualización*/
 
 img {
 
@@ -75,15 +70,13 @@ img {
 }
 
 code {
-
   background-color: #F8F8F8;
-
   color: rgb(43, 40, 40);
+
   padding: 2vmin;
+
   border: 1vmin solid #E7EAED;
-
   border-radius: 3%;
-
 }
 
 p {
@@ -102,34 +95,27 @@ textarea :focus {
 header {
 
   margin: 0;
-
   padding: 0;
 
-
   width: 100%;
-
 
   position: -webkit-sticky;
   position: sticky;
   top: -1px;
-
 
   background-color: var(--color-fondo);
   border-bottom: var(--tamanyo-borde-central, 0, 8vmin) solid black;
 }
 
 #titulo-principal {
-
   margin: 0;
   font-size: 4vmax;
   text-align: center;
   padding: 1vmax;
-
 }
 
 
 #cruz {
-
   position: fixed;
   font-size: 1.5vmax;
   top: 0;
@@ -139,32 +125,28 @@ header {
 }
 
 .centro {
-
   margin-top: 5vh;
 }
 
 /*Controla las características personales de todos los botones*/
 
 .boton-control {
-
   padding: 1.5vmin;
   margin: 0.5vmin;
+
   font-size: 3vh;
+
   border: solid black 0.1vmin;
-
   border-radius: 15%;
-  cursor: pointer;
-  width: 2.7vw;
 
+  cursor: pointer;
+
+  width: 2.7vw;
 }
 
 /*Controla los divs que almacenan las herramientas*/
-
 .herramientas {
-
   display: flex;
-
   justify-content: center;
   gap: 4vw;
-
 }
