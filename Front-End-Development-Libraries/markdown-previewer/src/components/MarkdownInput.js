@@ -10,7 +10,7 @@ class MarkdownInput extends Component {
 
     render() {
         return (
-            <div id='markdown'>
+            <div id='markdown' className={this.props.clase}>
 
                 <textarea id="editor" value={this.props.textoOriginal} onChange={this.props.cambio.bind(this)} />
 

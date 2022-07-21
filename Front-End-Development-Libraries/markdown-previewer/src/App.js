@@ -14,15 +14,13 @@ class App extends Component {
 
     super(props);
 
-    this.state = { mark: textoOriginal, mostrar: true };
+    this.state = { mark: textoOriginal, pantallaCompleta: false };
 
     this.cambioTextoInput = this.cambioTextoInput.bind(this);
 
     this.editarTexto = this.editarTexto.bind(this);
 
-    this.ocultarMostrar = this.ocultarMostrar.bind(this);
-
-
+    this.maximizarMinimizar = this.maximizarMinimizar.bind(this);
   }
 
   //Cambia el estado del texto que se esta mostrand
@@ -43,12 +41,12 @@ class App extends Component {
 
   //Ocultar la preview
 
-  ocultarMostrar() {
+  maximizarMinimizar() {
 
     //Invierte el valor de mostrar
     this.setState((state, props) => ({
 
-      mostrar: !state.mostrar
+      pantallaCompleta: !state.pantallaCompleta
 
     }));
 
@@ -56,23 +54,20 @@ class App extends Component {
 
   render() {
 
-    if (this.mostrar === true) {
-
-
-    }
-
+    var claseInput = (this.state.pantallaCompleta) ? 'markdown-max' : "";
 
     return (
       <div className="App" >
 
         {/* Se le introducen una función para poder editar el texto y el texto actual*/}
-        <Cabecera editarTexto={this.editarTexto} texto={this.state.mark} ocultarMostrar={this.ocultarMostrar} />
+        <Cabecera editarTexto={this.editarTexto} texto={this.state.mark} ocultarMostrar={this.maximizarMinimizar} maximizada={this.state.pantallaCompleta} />
 
 
         <main>
-          <MarkdownInput cambio={this.cambioTextoInput} textoOriginal={this.state.mark} />
+          <MarkdownInput cambio={this.cambioTextoInput} textoOriginal={this.state.mark} clase={claseInput} />
 
-          <Preview mark={this.state.mark} />
+          {!this.state.pantallaCompleta ? <Preview mark={this.state.mark} /> : null}
+
         </main>
       </div>
     );

@@ -17,8 +17,10 @@ class Cabecera extends Component {
         this.copiar = this.copiar.bind(this);
         this.guardarMD = this.guardarMD.bind(this);
         this.ayuda = this.ayuda.bind(this);
+        this.maximizarMinizar = this.maximizarMinizar.bind(this);
 
 
+        //Función que se ocupa de eliminar la cabecera
         this.ocultar = this.ocultar.bind(this);
 
     }
@@ -37,12 +39,6 @@ class Cabecera extends Component {
     reiniciar() {
 
         this.props.editarTexto(textoOriginal);
-    }
-
-    //Oculta la barra superior
-    ocultar() {
-
-        this.setState({ ocultar: true });
     }
 
     //Copia el md al porta papeles
@@ -71,20 +67,24 @@ class Cabecera extends Component {
 
     }
 
+    //Minimiza o máximiza la página de edición
     maximizarMinizar() {
 
+        this.ocultar();
 
+        this.props.ocultarMostrar();
 
+    }
+
+    //Oculta la barra superior
+    ocultar() {
+
+        this.setState({ ocultar: true });
     }
 
     render() {
 
-
-
-
-
-        const botonMaxMin = <BotonControl title="" classes="fa-solid " />;
-
+        const botonMaxMin = <BotonControl title="" classes="fa-solid fa-maximize" handleClick={this.maximizarMinizar} />;
 
         return (<header id="Cabecera">
 
@@ -100,15 +100,22 @@ class Cabecera extends Component {
                     <BotonControl title="Remove all the content" classes="fa-solid fa-eraser" handleClick={this.eliminarTodo} />
                     <BotonControl title="Get Help" classes="fa-solid fa-question" handleClick={this.ayuda} />
 
+                    {botonMaxMin}
+
 
                 </div>
 
-                <div className='herramientas'>
+                {/*Si no esta maximizada la pantalla lo muestra*/}
 
-                    <BotonControl title="Download the .md file" classes="fa-solid fa-download" handleClick={this.guardarMD} />
-                    <BotonControl title="Copy the .md" classes="fa-solid fa-copy" handleClick={this.copiar} />
+                {!this.props.maximizada ?
 
-                </div>
+                    <div className='herramientas'>
+
+                        <BotonControl title="Download the .md file" classes="fa-solid fa-download" handleClick={this.guardarMD} />
+                        <BotonControl title="Copy the .md" classes="fa-solid fa-copy" handleClick={this.copiar} />
+
+                    </div> : null
+                }
             </div>
 
         </header >);
