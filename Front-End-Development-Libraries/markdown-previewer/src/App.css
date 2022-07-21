@@ -1,15 +1,15 @@
 :root {
-  background-color: var(--color-fondo);
-  margin: 0;
-  --tamanyo-borde-central: 0.75vmin;
+	background-color: var(--color-fondo);
+	margin: 0px;
+	--tamanyo-borde-central: 0.75vmin;
 
-  --color-fondo: rgb(71, 78, 90);
+	--color-fondo: rgb(71, 78, 90);
 }
 
 
 .App {
 
-  text-align: left;
+	text-align: left;
 }
 
 
@@ -17,136 +17,195 @@
 
 main,
 #grid-herramientas {
-  display: grid;
+	display: grid;
 
-  grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr 1fr;
 
 }
 
 /*Columnas centrales*/
 #markdown {
-  text-align: center;
-  background-color: #9f9f9f;
+	text-align: center;
+	background-color: #9f9f9f;
+	height: 100%;
 
+	border-right: var(--tamanyo-borde-central, 8vmin) black solid;
+}
 
-  border-right: var(--tamanyo-borde-central, 8vmin) black solid !important;
+/*Esta clase se asigna cunado el texto está minimizado*/
 
+.markdown-max {
+	border: none !important;
+	width: 200%;
+
+	height: max-content;
+}
+
+.markdown-max textarea {
+
+	height: 90vh !important;
+
+	overflow: scroll !important;
 }
 
 #preview {
-  border-left: var(--tamanyo-borde-central, 8vmin) black !important;
+	border-left: var(--tamanyo-borde-central, 8vmin) black !important;
 
-  /*Margen entre  a línea negra y el texto ya formateado*/
-  padding: 0 4vmax;
-  background-color: #829393;
+	/*Margen entre  a línea negra y el texto ya formateado*/
+	padding: 0 4vmax;
+	background-color: #829393;
 }
 
 #markdown,
 #preview {
-  height: auto;
-  min-height: 75vh;
-  border-color: black;
-  border-style: none;
+	height: auto;
+	min-height: 75vh;
+	border-color: black;
 }
 
 #editor {
-  resize: none;
-  width: 96%;
-  height: 100%;
-  line-height: 2.5vmax;
-  border: 0;
-  outline: none;
-  overflow: hidden;
-  background: none;
+	resize: none;
+	width: 96%;
+	height: 100%;
+	line-height: 2.5vmax;
+	border: 0;
+	outline: none;
+	overflow: hidden;
+	background: none;
 }
+
+.editor-max {}
 
 /*Propiedades Generales de la previsualización*/
 
 img {
 
-  margin: 3vmax;
-  height: auto;
-  max-width: 50%;
+	margin: 3vmax;
+	height: auto;
+	max-width: 50%;
 }
 
-code {
-  background-color: #F8F8F8;
-  color: rgb(43, 40, 40);
-
-  padding: 2vmin;
-
-  border: 1vmin solid #E7EAED;
-  border-radius: 3%;
-}
 
 p {
-  line-height: 4vmax;
+	line-height: 4vmax;
+}
+
+pre {
+	background-color: #F8F8F8;
+	color: rgb(43, 40, 40);
+
+	border: 1vmin solid #E7EAED;
+	border-radius: 3%;
+
+	padding: 2vmin;
+
+
+}
+
+table,
+td,
+th {
+	margin: 2vmin;
+	border: black solid
+}
+
+table {
+
+	border-width: 2.5vmin;
+	border-collapse: collapse;
+	/*Evita que se creen margenes entre los bordes*/
+}
+
+td,
+th {
+	padding: 2vmin;
+	border-width: 1vmin;
+}
+
+th {
+	font-size: 3vmin;
+}
+
+blockquote {
+	background-color: #9f9f9f;
+
+	border-width: 2vmin;
+	border-radius: 2vmin;
+
+	border-left: solid 2vmin rgb(120, 120, 196);
+
+
+
+	padding-left: 3vmax;
+	padding: 0.5em;
+
+	font-family: 'Times New Roman', Times, serif;
 }
 
 
 
 textarea :focus {
-  outline: none;
-  border: none;
+	outline: none;
+	border: none;
 }
 
 /*Cabecera*/
 
 header {
 
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 
-  width: 100%;
+	width: 100%;
 
-  position: -webkit-sticky;
-  position: sticky;
-  top: -1px;
+	position: -webkit-sticky;
+	position: sticky;
+	top: -1px;
 
-  background-color: var(--color-fondo);
-  border-bottom: var(--tamanyo-borde-central, 0, 8vmin) solid black;
+	background-color: var(--color-fondo);
+	border-bottom: var(--tamanyo-borde-central, 0, 8vmin) solid black;
 }
 
 #titulo-principal {
-  margin: 0;
-  font-size: 4vmax;
-  text-align: center;
-  padding: 1vmax;
+	margin: 0;
+	font-size: 4vmax;
+	text-align: center;
+	padding: 1vmax;
 }
 
 
 #cruz {
-  position: fixed;
-  font-size: 1.5vmax;
-  top: 0;
-  right: 0;
-  margin: 1vmin;
-  text-align: center;
+	position: fixed;
+	font-size: 1.5vmax;
+	top: 0;
+	right: 0;
+	margin: 1vmin;
+	text-align: center;
 }
 
 .centro {
-  margin-top: 5vh;
+	margin-top: 5vh;
 }
 
 /*Controla las características personales de todos los botones*/
 
 .boton-control {
-  padding: 1.5vmin;
-  margin: 0.5vmin;
+	padding: 1.5vmin;
+	margin: 0.5vmin;
 
-  font-size: 3vh;
+	font-size: 3vh;
 
-  border: solid black 0.1vmin;
-  border-radius: 15%;
+	border: solid black 0.1vmin;
+	border-radius: 15%;
 
-  cursor: pointer;
+	cursor: pointer;
 
-  width: 2.7vw;
+	width: 2.7vw;
 }
 
 /*Controla los divs que almacenan las herramientas*/
 .herramientas {
-  display: flex;
-  justify-content: center;
-  gap: 4vw;
+	display: flex;
+	justify-content: center;
+	gap: 4vw;
 }
