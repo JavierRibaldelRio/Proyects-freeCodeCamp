@@ -6,6 +6,9 @@ import textoOriginal from '../Data/TextoOriginal';
 
 import FileSaver from 'file-saver';
 
+
+//Genera la cabecera de app
+
 class Cabecera extends Component {
     constructor(props) {
         super(props);
@@ -84,45 +87,52 @@ class Cabecera extends Component {
 
     render() {
 
+        //Elige el icono funcel botor en función de la pantalla esta minimizada o no
         const icono = this.props.maximizada ? "fa-minimize" : "fa-maximize";
 
+
+        //Le suma al icono el fa-solid para indicar que es una clase de font awosomw
         const classeBotonMin = "fa-solid " + icono;
 
-        const botonMaxMin = <BotonControl title="" classes={classeBotonMin} handleClick={this.maximizarMinizar} />;
 
-        return (<header id="Cabecera">
-
-            <div id='parte-superior' hidden={this.state.ocultar} >
-                <h1 id='titulo-principal'>UNCOMPLICATED MARKDOWN</h1>
-                <button id='cruz' onClick={this.ocultar}><i className="fa-solid fa-xmark"></i> </button>
-            </div>
-            <div id='grid-herramientas'>
-
-                <div className='herramientas'>
-
-                    <BotonControl title="Create a new file" classes="fa-solid fa-file" handleClick={this.reiniciar} />
-                    <BotonControl title="Remove all the content" classes="fa-solid fa-eraser" handleClick={this.eliminarTodo} />
-                    <BotonControl title="Get Help" classes="fa-solid fa-question" handleClick={this.ayuda} />
-
-                    {botonMaxMin}
-
-
+        return (
+            <header id="Cabecera">
+                {/* El Título*/}
+                <div id='parte-superior' hidden={this.state.ocultar} >
+                    <h1 id='titulo-principal'>UNCOMPLICATED MARKDOWN</h1>
+                    <button id='cruz' onClick={this.ocultar}><i className="fa-solid fa-xmark"></i> </button>
                 </div>
 
-                {/*Si no esta maximizada la pantalla lo muestra*/}
+                {/*Las dos barras de herramientas*/}
+                <div id='grid-herramientas'>
 
-                {!this.props.maximizada ?
 
+                    {/* Esta simpre se muestra */}
                     <div className='herramientas'>
 
-                        <BotonControl title="Download the .md file" classes="fa-solid fa-download" handleClick={this.guardarMD} />
-                        <BotonControl title="Copy the .md" classes="fa-solid fa-copy" handleClick={this.copiar} />
+                        <BotonControl title="Create a new file" classes="fa-solid fa-file" handleClick={this.reiniciar} />
+                        <BotonControl title="Remove all the content" classes="fa-solid fa-eraser" handleClick={this.eliminarTodo} />
+                        <BotonControl title="Get Help" classes="fa-solid fa-question" handleClick={this.ayuda} />
 
-                    </div> : null
-                }
-            </div>
+                        <BotonControl title="" classes={classeBotonMin} handleClick={this.maximizarMinizar} />;
 
-        </header >);
+
+                    </div>
+
+                    {/*Si no esta maximizada la pantalla lo muestra*/}
+
+                    {!this.props.maximizada ?
+
+                        <div className='herramientas'>
+
+                            <BotonControl title="Download the .md file" classes="fa-solid fa-download" handleClick={this.guardarMD} />
+                            <BotonControl title="Copy the .md" classes="fa-solid fa-copy" handleClick={this.copiar} />
+
+                        </div> : null
+                    }
+                </div>
+
+            </header >);
     }
 }
 

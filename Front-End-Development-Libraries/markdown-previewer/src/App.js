@@ -14,6 +14,7 @@ class App extends Component {
 
     super(props);
 
+    //Asigna el texto original y la pantalla completa a falso
     this.state = { mark: textoOriginal, pantallaCompleta: false };
 
     this.cambioTextoInput = this.cambioTextoInput.bind(this);
@@ -66,6 +67,7 @@ class App extends Component {
         <main>
           <MarkdownInput cambio={this.cambioTextoInput} textoOriginal={this.state.mark} clase={claseInput} />
 
+          {/* Si la pantalla es completa elimina la previsualización */}
           {!this.state.pantallaCompleta ? <Preview mark={this.state.mark} /> : null}
 
         </main>

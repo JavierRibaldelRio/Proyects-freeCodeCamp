@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-//Es la clase de los botones de la barra de control
+//Crea los botones de la barra de control, estan diseñados para para renderizar un componente en de font awosome, se le introduce c omo propiedad la classe del botón, además de la función que se tiene que ejecutar cuando se pulse el botón; además se le añade la pista del voton de arriba
 class BotonControl extends Component {
     constructor(props) {
         super(props);
