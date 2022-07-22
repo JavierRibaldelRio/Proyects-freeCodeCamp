@@ -84,7 +84,11 @@ class Cabecera extends Component {
 
     render() {
 
-        const botonMaxMin = <BotonControl title="" classes="fa-solid fa-maximize" handleClick={this.maximizarMinizar} />;
+        const icono = this.props.maximizada ? "fa-minimize" : "fa-maximize";
+
+        const classeBotonMin = "fa-solid " + icono;
+
+        const botonMaxMin = <BotonControl title="" classes={classeBotonMin} handleClick={this.maximizarMinizar} />;
 
         return (<header id="Cabecera">
 
