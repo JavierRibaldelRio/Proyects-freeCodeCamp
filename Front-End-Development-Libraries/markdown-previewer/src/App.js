@@ -6,15 +6,7 @@ import MarkdownInput from './components/MarkdownInput';
 import Preview from './components/Preview';
 import Cabecera from './components/Cabecera';
 
-
-const Preview = styled.div`
-
-color: blue;
-
-`;
-
-
-
+import textoOriginal from './Data/TextoOriginal';
 
 class App extends Component {
 
@@ -22,36 +14,63 @@ class App extends Component {
 
     super(props);
 
-    this.state = { mark: '# Cabecera 1\n## Cabecera 2\n- Esto es un palabra en **negrita**\n- Esto es un palabra en *cursiva*\n- Esto es un palabra ~~tachada~~\n> Esto es una cita\n \nEsto es un trozo de código: `<div></div>`\n```\nconsole.log("Hola, Markdown");\n```\n ![Esto es una imagen](md.png)\n\nEsta es mi página de [GitHub](https://github.com/JavierRibaldelRio), puedes seguirme, no muerdo ' };
+    //Asigna el texto original y la pantalla completa a falso
+    this.state = { mark: textoOriginal, pantallaCompleta: false };
 
-    this.cambioTexto = this.cambioTexto.bind(this)
+    this.cambioTextoInput = this.cambioTextoInput.bind(this);
+
+    this.editarTexto = this.editarTexto.bind(this);
+
+    this.maximizarMinimizar = this.maximizarMinimizar.bind(this);
+  }
+
+  //Cambia el estado del texto que se esta mostrand
+
+  editarTexto(nuevoTexto) {
+
+    this.setState({ mark: nuevoTexto });
+  }
 
 
+  //Recoge el texto en markdown de un inputy se lo manda a la función que edita el estado
+  cambioTextoInput(m) {
+
+    this.editarTexto(m.target.value);
 
   }
 
 
-  //Recoge el texto en markdown
-  cambioTexto(m) {
+  //Ocultar la preview
 
-    this.setState({ mark: m.target.value });
+  maximizarMinimizar() {
+
+    //Invierte el valor de mostrar
+    this.setState((state, props) => ({
+
+      pantallaCompleta: !state.pantallaCompleta
+
+    }));
+
   }
 
   render() {
+
+    var claseInput = (this.state.pantallaCompleta) ? 'markdown-max' : "";
+
     return (
       <div className="App" >
 
-        <Cabecera />
+        {/* Se le introducen una función para poder editar el texto y el texto actual*/}
+        <Cabecera editarTexto={this.editarTexto} texto={this.state.mark} ocultarMostrar={this.maximizarMinimizar} maximizada={this.state.pantallaCompleta} />
+
 
         <main>
-          <MarkdownInput cambio={this.cambioTexto} textoOriginal={this.state.mark} />
+          <MarkdownInput cambio={this.cambioTextoInput} textoOriginal={this.state.mark} clase={claseInput} />
 
-          <Preview mark={this.state.mark} />
+          {/* Si la pantalla es completa elimina la previsualización */}
+          {!this.state.pantallaCompleta ? <Preview mark={this.state.mark} /> : null}
+
         </main>
-
-
-
-
       </div>
     );
   }
