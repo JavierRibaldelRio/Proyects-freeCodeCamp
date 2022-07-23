@@ -114,7 +114,7 @@ class Cabecera extends Component {
                         <BotonControl title="Remove all the content" classes="fa-solid fa-eraser" handleClick={this.eliminarTodo} />
                         <BotonControl title="Get Help" classes="fa-solid fa-question" handleClick={this.ayuda} />
 
-                        <BotonControl title="" classes={classeBotonMin} handleClick={this.maximizarMinizar} />;
+                        <BotonControl title="" classes={classeBotonMin} handleClick={this.maximizarMinizar} />
 
 
                     </div>
