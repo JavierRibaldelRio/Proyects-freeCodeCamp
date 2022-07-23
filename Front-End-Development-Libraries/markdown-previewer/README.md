@@ -3,15 +3,15 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/286233a3-bbac-46ab-bf16-013ae5f5b48d/deploy-status)](https://app.netlify.com/sites/easy-markdown/deploys) 
 
-Is a web application that allows you to write Markdown simple way. Whilw you are writting markdown you will be watching the the markdonw code formated. Is a proyect for the FreeCodeCamp's Certification (FCC) on "Front End Development Libraries"
+It is a web application that allows you to write Markdown in a simple way. While you are writting markdown you will be watching the the formated markdown code. It is a project for the FreeCodeCamp's Certification (FCC) on "Front End Development Libraries"
 
 ## Usage 
  
-To use it you have to acces to this URL: [https://easy-markdown.netlify.app/](https://easy-markdown.netlify.app/)
+To use it you have to access this URL: [https://easy-markdown.netlify.app/](https://easy-markdown.netlify.app/)
 
 ## Installation
 
-This is how to install this proyect to develop it
+This is how to install this project to develop it
 
 First of all, download it:
 
@@ -41,7 +41,7 @@ $ npm start
 
 ### FCC Tests
 
-In the webpage in the superior right corner you will ind the test utility, to use it you have to select Markdown-Previewer an then press run tests.
+In the webpage in the top right corner you will find the test utility, to use it you have to select Markdown-Previewer an then press run tests.
 
 ![Screenshot of how to run the tests](public/readme_pic.png)
 
