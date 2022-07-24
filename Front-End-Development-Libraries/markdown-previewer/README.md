@@ -53,3 +53,12 @@ In the webpage in the top right corner you will find the test utility, to use it
 - [Fontawoesome](https://fontawesome.com/) - To get the icons for the web
 -  [Marked-React](https://www.npmjs.com/package/marked-react) - To format markdown
 -  [File-Saver](https://www.npmjs.com/package/file-saver) - To save the md file
+
+## Author
+
+[Javier Ribal del Río](https://github.com/JavierRibaldelRio)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](../../LICENSE) file for details
+
