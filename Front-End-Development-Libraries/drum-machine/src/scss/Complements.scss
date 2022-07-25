@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Chango&family=Pacifico&display=swap');
+
+#display {
+
+    $color-fondo: rgba(242, 170, 49, 1);
+    margin: 0;
+
+    background-color: $color-fondo;
+
+    min-width: 30vw;
+    height: 10vh;
+
+    //Centra el conteinido
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: solid 2vmin $color-fondo;
+
+    border-radius: 10vmin;
+
+    border: solid black .75vmin;
+
+}
+
+h1 {
+    font-family: Chango;
+}

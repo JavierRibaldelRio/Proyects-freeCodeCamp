@@ -1,0 +1,62 @@
+@mixin user-select($val) {
+
+    -webkit-user-select: $val;
+    -moz-user-select: $val;
+    -ms-user-select: $val;
+    user-select: $val;
+}
+
+.drum-pad {
+
+    background-color: #3079f2;
+
+    padding: 8vmin;
+    display: inline-block;
+
+    border: black solid 1vmin;
+    border-radius: 15%;
+
+    @include user-select(none);
+
+    cursor: pointer;
+    -webkit-box-shadow: 13px 9px 16px 3px rgba(0, 0, 0, 0.74);
+    box-shadow: 13px 9px 16px 3px rgba(0, 0, 0, 0.74);
+}
+
+.drum-pad:hover {
+
+    background-color: rgb(5, 211, 166);
+
+}
+
+.al-pulsar {
+
+    background-color: rgb(0, 156, 156) !important;
+
+    cursor: default !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+
+}
+
+#DrumPads {
+
+    width: min-content;
+
+    display: grid;
+
+    //Hace la forma de cuadricula
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+
+    //hace que todos tengan el mismo tamaño
+    justify-items: stretch;
+    align-items: stretch;
+    place-items: stretch;
+
+    place-content: space-evenly;
+    padding: 3vmin;
+
+    gap: 2vmin;
+
+}

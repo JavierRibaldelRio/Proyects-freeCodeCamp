@@ -1,0 +1,40 @@
+:root {
+
+    margin: 0;
+    text-align: center;
+
+    background-color: rgb(84, 97, 206);
+
+}
+
+//Centra todo el contenido de la web
+body {
+    display: flex;
+
+    flex-direction: row;
+
+    width: 100%;
+    height: 100vh;
+
+    justify-content: center;
+    align-items: center;
+}
+
+
+#drum-machine {
+
+    background-color: #cdc054;
+
+    border-radius: 15vmin;
+
+    border: black 2vmin solid;
+
+    //Tamaño del contenedor
+    width: 70vw;
+    height: 90vh;
+
+    display: flex;
+    align-items: center;
+
+    justify-content: space-around;
+}

@@ -6,21 +6,32 @@ class DrumPad extends Component {
     constructor(props) {
         super(props);
 
+        this.state = { pulsado: false };
+
         this.reproducirAudio = this.reproducirAudio.bind(this);
 
         this.handlePress = this.handlePress.bind(this);
     }
 
 
+    invertirBoton() {
 
-    //Se ejecuta para inicializar el estado con la propiedad
+        this.setState({ pulsado: !this.state.pulsado });
+
+    }
+
+    //Reproduce el audio, mandal el display y cambia el color del boton
     reproducirAudio() {
+
+        this.invertirBoton();
+
+        setTimeout(this.invertirBoton.bind(this), 300);
 
         //Hace al elemento audio reproducir el src
         reproducirElementAudio(this.props.instrumento.letra);
 
         //Envia el nombre al display
-        this.props.mandarNombre(this.props.instrumento.nombre);
+        this.props.editarDisplay(this.props.instrumento.nombre);
 
 
     }
@@ -31,7 +42,6 @@ class DrumPad extends Component {
 
         if (e.keyCode === this.props.instrumento.codigoLetra) {
             this.reproducirAudio();
-
         }
     }
 
@@ -41,17 +51,27 @@ class DrumPad extends Component {
 
         document.addEventListener('keydown', this.handlePress);
 
+        //Dice que el boton esta pulsado
+
+
+
     }
 
     render() {
 
         const ins = this.props.instrumento; //Almacena el instrumento
 
+        //Crea la variable clase
+
+        let clase = 'drum-pad ';
+
+        //Si esta pulsado añade la clase de pulsado
+        clase = clase + ((this.state.pulsado) ? 'al-pulsar' : '');
 
         //Pedimos el
         var audio = require('../audio/' + ins.letra + '.mp3')
 
-        return (<div className='drum-pad' id={ins.nombre} onClick={this.reproducirAudio}>
+        return (<div className={clase} id={ins.nombre} onClick={this.reproducirAudio}>
 
 
             <audio id={ins.letra} className='clip' src={audio} />

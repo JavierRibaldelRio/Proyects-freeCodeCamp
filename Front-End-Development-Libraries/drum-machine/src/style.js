@@ -1,2 +1,3 @@
 import './scss/App.scss';
-import './scss/DrumPad.scss';
+import './scss/Drum.scss';
+import './scss/Complements.scss';

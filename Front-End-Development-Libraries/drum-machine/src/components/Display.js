@@ -22,7 +22,7 @@ class Display extends Component {
 
 Display.defaultProps = {
 
-    nombre: " "
+    nombre: "<br>"
 }
 
 export default Display;

@@ -1,44 +1,37 @@
-import Display from './components/Display';
 import './style';
 import React, { Component } from 'react';
-import teclado from './data/Teclado';
-import DrumPad from './components/DrumPad';
+import PanelControl from './components/PanelControl';
+import DrumPads from './components/DrumPads';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { nombreInstrumento: '' };
+    this.state = { contenidoDisplay: '' };
 
-    this.editarNombre = this.editarNombre.bind(this);
+    this.editarDisplay = this.editarDisplay.bind(this);
 
   }
 
 
   //Edita el estado
-  editarNombre(nombre) {
+  editarDisplay(nuevoDisplay) {
 
-    console.log("HOla")
-
-    this.setState({ nombreInstrumento: nombre });
+    this.setState({ contenidoDisplay: nuevoDisplay });
 
   }
 
 
   render() {
 
-    //Con un map genera todas las teclas le pasa la clave y la función para editar le texto que aparece en display
-
-    var teclas = teclado.map((x) => <DrumPad instrumento={x} key={x.letra} mandarNombre={this.editarNombre} />);
 
     return (
       <div id='drum-machine'>
 
-        <Display nombre={this.state.nombreInstrumento} />
-
-        {teclas}
+        <DrumPads editarDisplay={this.editarDisplay} />
 
 
+        <PanelControl contenidoDisplay={this.state.contenidoDisplay} />
       </div >
     );
   }
