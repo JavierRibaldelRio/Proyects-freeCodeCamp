@@ -6,10 +6,15 @@
 
         "display display display display"
         "clear clear divide multiplay"
-        "numbers numbers numbers substract"
-        "numbers numbers numbers add"
-        "numbers numbers numbers equals"
+        "one two three substract"
+        "four five six add"
+        "seven eight nine equals"
         "zero zero decimal equals";
 
 
+}
+
+#display {
+
+    grid-area: "display";
 }

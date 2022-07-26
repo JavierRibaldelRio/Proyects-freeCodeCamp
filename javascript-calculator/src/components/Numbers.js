@@ -15,17 +15,17 @@ class Numbers extends Component {
         var botones = []
 
         //Genera los botones y los guarda
-        for (var i = 1; i < 10; i++) {
+        for (var i = 0; i < 10; i++) {
 
-            botones.push(<CalcButton nid={pasarNumeroATexto(i)} contenido={i} key={i} />);
+            botones.push(<CalcButton area={pasarNumeroATexto(i)} contenido={i} key={i} />);
         }
 
 
-        return (<div id="numbers">
+        return (<>
 
             {botones}
 
-        </div>);
+        </>);
     }
 }
 

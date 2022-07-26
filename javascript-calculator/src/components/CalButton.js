@@ -10,10 +10,17 @@ class CalcButton extends Component {
 
 
 
-        const estilo = { gridArea: this.props.area };
+        //Genera el estilo con el area si hay un ara definida
+
+        if (this.props.area !== undefined) {
+
+            var estilo = { gridArea: this.props.area };
+        }
+        //Genera la id con la nid si existe, sino con el area
+        let nid = (this.props.nid === null) ? this.props.area : this.props.nid;
 
 
-        return (<button className='calc-button' style={estilo} >
+        return (<button id={nid} className='calc-button' style={estilo} >
 
             {this.props.contenido}
 
@@ -23,7 +30,8 @@ class CalcButton extends Component {
 
 CalcButton.defaultProps = {
 
-    contenido: ''
+    contenido: '',
+    nid: null
 }
 
 export default CalcButton;
