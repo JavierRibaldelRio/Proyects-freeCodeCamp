@@ -11,11 +11,11 @@ class Calculator extends Component {
     render() {
         return (<div id="calculator">
 
-            <CalcButton area="add" contenido="3" />
-            <CalcButton area="display" contenido="5" />
+            <CalcButton area="add" contenido="+" />
+            <CalcButton area="display" contenido="Hola" />
+            <CalcButton area="substract" contenido="-" />
             <CalcButton contenido="3" />
-            <CalcButton contenido="3" />
-            <CalcButton contenido="3" />
+            <CalcButton area="zero" contenido="0" />
 
 
         </div>);
