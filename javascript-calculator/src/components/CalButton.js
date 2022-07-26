@@ -4,8 +4,15 @@ import React, { Component } from 'react';
 class CalcButton extends Component {
     constructor(props) {
         super(props);
+
+        this.onClick = this.onClick.bind(this);
     }
     state = {}
+
+    onClick() {
+
+        this.props.handleClick(this.props.contenido);
+    }
     render() {
 
 
@@ -20,7 +27,7 @@ class CalcButton extends Component {
         let nid = (this.props.nid === null) ? this.props.area : this.props.nid;
 
 
-        return (<button id={nid} className='calc-button' style={estilo} >
+        return (<button id={nid} className='calc-button' style={estilo} onClick={this.onClick} >
 
             {this.props.contenido}
 
@@ -31,7 +38,8 @@ class CalcButton extends Component {
 CalcButton.defaultProps = {
 
     contenido: '',
-    nid: null
+    nid: null,
+    handleClick: () => { }
 }
 
 export default CalcButton;

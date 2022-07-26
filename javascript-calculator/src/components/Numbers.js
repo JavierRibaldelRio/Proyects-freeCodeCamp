@@ -8,6 +8,8 @@ import CalcButton from './CalButton';
 class Numbers extends Component {
     constructor(props) {
         super(props);
+
+        this.handleClick = this.props.handleClick.bind(this);
     }
     state = {}
     render() {
@@ -17,7 +19,7 @@ class Numbers extends Component {
         //Genera los botones y los guarda
         for (var i = 0; i < 10; i++) {
 
-            botones.push(<CalcButton area={pasarNumeroATexto(i)} contenido={i} key={i} />);
+            botones.push(<CalcButton area={pasarNumeroATexto(i)} contenido={i} key={i} handleClick={this.handleClick} />);
         }
 
 

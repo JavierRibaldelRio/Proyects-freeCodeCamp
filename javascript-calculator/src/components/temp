@@ -1,0 +1,23 @@
+
+switch (i) {
+    case sum:
+        resultado += numero;
+
+        break;
+
+    case res:
+
+        resultado -= numero;
+
+        break;
+
+    case mul:
+        resultado *= numero;
+        break;
+
+    case div:
+
+        resultado = numero
+
+
+}<
