@@ -7,9 +7,17 @@ class CalcButton extends Component {
     }
     state = {}
     render() {
-        return (<div className='calc-button'>
 
-        </div>);
+
+
+        const estilo = { gridArea: this.props.area };
+
+
+        return (<button className='calc-button' style={estilo} >
+
+            {this.props.contenido}
+
+        </button>);
     }
 }
 
