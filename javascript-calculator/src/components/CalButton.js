@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
 
 
-class Boton extends Component {
+class CalcButton extends Component {
     constructor(props) {
         super(props);
     }
     state = {}
     render() {
-        return (  );
+        return (<div className='calc-button'>
+
+        </div>);
     }
 }
 
-Boton.defaultProps = {
+CalcButton.defaultProps = {
 
     contenido: ''
 }
 
-export default Boton;
+export default CalcButton;
