@@ -3,6 +3,7 @@ import CalcButton from './CalButton';
 import Display from './Display';
 import Numbers from './Numbers';
 import keys from '../data/Keys';
+import operar from '../scripts/Operar';
 
 import { sum, res, mul, div, igu, dec } from '../data/Operators'
 
@@ -105,28 +106,10 @@ class Calculator extends Component {
 
                 const numero = Number(this.state.digitos.join(''));
 
-                //Opera
-                switch (this.state.operacion) {
-                    case sum:
-                        resultado += numero;
+                //Opera y redondea
 
-                        break;
+                resultado = operar(resultado, numero, this.state.operacion, 4);
 
-                    case res:
-
-                        resultado -= numero;
-
-                        break;
-
-                    case mul:
-                        resultado *= numero;
-                        break;
-
-                    case div:
-
-                        resultado = resultado / numero;
-
-                }
 
                 this.setState({ resultado: resultado, digitos: [], display: resultado, decimalUsado: false });
 
