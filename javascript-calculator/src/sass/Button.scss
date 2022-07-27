@@ -1,9 +1,45 @@
-.calc-buttons {
+.calc-button {
 
     //Centra todo el contenido el botón
     display: flex;
     align-items: center;
     justify-content: center;
 
+    font-size: 4vmin;
 
+    padding: 1vmin;
+    cursor: pointer;
+
+    background-color: rgb(198, 248, 140);
+
+    border: rgb(68, 107, 58) solid 0.4vmin;
+
+
+}
+
+#clear {
+
+    background-color: rgb(247, 122, 122);
+
+}
+
+#equals {
+
+    background-color: rgb(113, 171, 247);
+
+}
+
+#divide,
+#multiply,
+#subtract,
+#add,
+#decimal,
+#zero {
+
+    background-color: rgb(192, 192, 192);
+}
+
+.calc-button:active {
+
+    background-color: rgb(243, 243, 167) !important;
 }

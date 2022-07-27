@@ -2,6 +2,10 @@
 
     display: grid;
 
+    height: 85vh;
+
+    width: 30vw;
+
     grid-template-areas:
 
         "display display display display"
@@ -12,9 +16,29 @@
         "zero zero decimal equals";
 
 
+    align-items: 'stretch';
+    justify-items: 'stretch';
+    place-items: 'stretch';
+
+    font-size: 6vmin;
+
+    border: rgb(68, 107, 58) solid 0.4vmin;
+
 }
 
 #display {
 
-    grid-area: "display";
+    text-align: right;
+    border: rgb(68, 107, 58) solid 0.4vmin;
+
+    display: flex;
+
+    justify-content: end;
+    align-items: flex-end;
+
+    width: calc(100% - 0.4vmin * 2);
+
+
+
+    background-color: rgba(199, 228, 228, 0.719);
 }
