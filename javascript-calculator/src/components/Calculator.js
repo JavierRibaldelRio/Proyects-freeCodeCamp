@@ -19,19 +19,18 @@ class Calculator extends Component {
         this.handleClickNumeros = this.handleClickNumeros.bind(this);
 
 
-        this.state = { display: 0, digitos: [], resultado: 0, operacion: null, decimalUsado: false, negativo: false };
+        this.state = { display: 0, digitos: [], resultado: 0, operacion: null, negativo: false };
 
     }
 
     //Pone los valores del estado en el punto de partida
     reiniciar() {
 
-        this.setState({ display: 0, digitos: [], resultado: 0, operacion: null, decimalUsado: false });
+        this.setState({ display: 0, digitos: [], resultado: 0, operacion: null, });
     }
 
     //Añade al número el . o el dígito introducido
     anyadirANumero(char) {
-
 
 
         const ni = this.state.digitos.concat(char);
@@ -61,30 +60,26 @@ class Calculator extends Component {
 
     handleClickSimbolos(i) {
 
-        //Si se trata del borra
-        console.log('hola');
-
-
+        //Si el símbolo es AC reinicia la app
         if (i === "AC") {
 
             this.reiniciar();
         }
 
-        //Si se trata del punto decimal
-        else if (i === dec && this.state.decimalUsado === false) {
+        //Si se trata del punto decimal y no esta incluido en la otra
+        else if (i === dec && !this.state.display.includes('.')) {
 
             //Ponemos un cero por si no hay nada en el string, ya que no se puede empezar por 0
 
             if (this.state.digitos.length === 0) {
 
-                this.setState({ digitos: [0] });
+                this.anyadirANumero(0);
 
             }
 
             //Pone el punto en el display y en el estado
             this.anyadirANumero(dec);
 
-            this.setState({ decimalUsado: true });
 
         } else if (i === res && this.state.digitos.length === 0) {
 
