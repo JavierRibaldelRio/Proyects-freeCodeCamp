@@ -19,7 +19,7 @@ class Calculator extends Component {
         this.handleClickNumeros = this.handleClickNumeros.bind(this);
 
 
-        this.state = { display: 0, digitos: [], resultado: 0, operacion: null, negativo: false };
+        this.state = { display: 0, digitos: [], resultado: 0, operacion: null };
 
     }
 
@@ -32,7 +32,6 @@ class Calculator extends Component {
     //Añade al número el . o el dígito introducido
     anyadirANumero(char) {
 
-
         const ni = this.state.digitos.concat(char);
 
         this.setState({ digitos: ni, display: ni.join('') });
@@ -41,17 +40,13 @@ class Calculator extends Component {
 
     handleClickNumeros(i) {
 
+
         if (this.state.operacion === null) {
 
             this.setState({ operacion: sum, resultado: 0 })
         }
 
-
-        if (i === 0 && this.state.digitos.length === 0) {
-
-
-        } else {
-
+        if (i > 0 || this.state.digitos.length > 0) {
             this.anyadirANumero(i);
 
         }
@@ -81,24 +76,27 @@ class Calculator extends Component {
             this.anyadirANumero(dec);
 
 
-        } else if (i === res && this.state.digitos.length === 0) {
-
-            this.setState({ digitos: ['-'], negativo: true });
-
         }
+
+        //Si el símbolo es - y la longitud es 0 añadimos el menos
+        else if (i === res && this.state.digitos.length === 0) {
+
+            this.anyadirANumero(res)
+        }
+
         else if (i !== dec) {
 
+            //Almacena el operador que luego se utilizará para la figuiente operación
 
+            let simbolo = (i === igu) ? null : i;
 
-            //En el momento en el que se presiona un símbolo se opera
-            if (this.state.operacion === null || (JSON.stringify(this.state.digitos) === JSON.stringify([res]))) {
+            //Siempre que sepamos la operación y la respuesta no sea igual a digitos. O el único valor que haya en digitos sea el símbolo de menos
+            if (this.state.operacion !== null && JSON.stringify(this.state.digitos) !== JSON.stringify([res])) {
 
-                this.setState({ operacion: i, digitos: [] });
-
-            }
-            else {
+                //Saca el resultado almacenado
                 var resultado = this.state.resultado;
 
+                //Saca el nuevo número
                 const numero = Number(this.state.digitos.join(''));
 
                 //Opera y redondea
@@ -106,35 +104,23 @@ class Calculator extends Component {
                 resultado = operar(resultado, numero, this.state.operacion, 4);
 
 
-                this.setState({ resultado: resultado, digitos: [], display: resultado, decimalUsado: false });
-
-                if (i === igu) {
-
-                    this.setState({ operacion: null })
-
-                } else {
-
-                    this.setState({ operacion: i });
-                }
+                this.setState({ resultado: resultado, display: resultado });
 
             }
+
+            //Genera los estados
+            this.setState({ digitos: [], operacion: simbolo })
+
         }
 
     }
 
-    //Si es un símbolo
-
-    //this.setState({ operacion: i });
-
-
-    //Si se trata de una operación
 
 
     render() {
 
 
         var teclas = keys.map((x) => <CalcButton key={JSON.stringify(x)} area={x.area} contenido={x.cont} handleClick={this.handleClickSimbolos} />);
-
 
         return (<div id="calculator">
             {/* Display */}
