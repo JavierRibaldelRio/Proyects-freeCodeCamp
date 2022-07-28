@@ -1,0 +1,35 @@
+/* El selector de tiempoes en foma de grid */
+.selector {
+
+    display: grid;
+
+    grid-template-areas: "label label label"
+        "decrement length increment";
+}
+
+/* Cada uno de los botones con su area asignada */
+.decrement {
+    grid-area: decrement;
+}
+
+.increment {
+    grid-area: increment;
+}
+
+.length {
+    grid-area: length;
+}
+
+.label {
+    grid-area: label;
+
+}
+
+.label:first-letter {
+
+    text-transform: uppercase;
+}
+
+/* Todos los botones sean de increment o dicrement */
+
+.button-dec-inc {}
