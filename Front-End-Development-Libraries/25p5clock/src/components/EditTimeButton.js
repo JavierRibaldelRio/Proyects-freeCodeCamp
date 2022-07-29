@@ -14,7 +14,7 @@ class EditTimeButton extends Component {
 
         const clases = "button-dec-inc " + this.props.clases;
 
-        return (<button id={this.props.nid} onClick={this.handleClick} className={clases} />);
+        return (<button id={this.props.nid} onClick={this.handleClick} className={clases} disabled={this.props.desactivado} />);
     }
 
 }

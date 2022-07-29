@@ -77,8 +77,8 @@ class Selector extends Component {
 
                 {/* Botones  */}
 
-                <EditTimeButton nid={idIn} clases={clasesIn} handleClick={this.increment} />
-                <EditTimeButton nid={idDe} clases={clasesDe} handleClick={this.decrement} />
+                <EditTimeButton nid={idIn} clases={clasesIn} handleClick={this.increment} desactivado={this.props.desactivado} />
+                <EditTimeButton nid={idDe} clases={clasesDe} handleClick={this.decrement} desactivado={this.props.desactivado} />
 
                 <div id={idLe} className='length'>{this.props.tiempo}</div>
 
