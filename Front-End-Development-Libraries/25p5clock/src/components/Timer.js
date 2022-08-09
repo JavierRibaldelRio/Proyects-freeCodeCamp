@@ -25,24 +25,21 @@ class Timer extends Component {
         this.crearIntervalo();
 
     }
+
+    //Cada propiedad o state actualizado
     componentDidUpdate(prevProps) {
 
 
         //Si el tipo de temporizador a variado
         if (JSON.stringify(prevProps) !== JSON.stringify(this.props)) {
-            this.setState(INICIALSTATE);    //Vuelve a poner el estado en original        
 
-
-            //Elimina el antiguo intervalo
-            clearInterval(this.intervalo)
-
-            //Crea el nuevo Intercalo
-            this.crearIntervalo();
+            this.setState({ minutos: this.props.minutos });
 
         }
 
     }
 
+    //Desactiva el intervalo cuando el componente desaparece
     componentWillUnmount() {
         clearInterval(this.intervalo);
     }
@@ -89,6 +86,9 @@ class Timer extends Component {
 
                 if (0 < segundos) {
                     segundos--;
+
+                    this.setState({ minutos: minutos, segundos: segundos });
+
                 }
 
                 if (segundos === 0) {
@@ -97,13 +97,14 @@ class Timer extends Component {
                     if (minutos === 0) {
 
                         //Sis se acaba
-
-
+                        //Pone el crono a cero
                         this.setState({ minutos: minutos, segundos: segundos });
 
-                        clearInterval(this.intervalo);
 
-                        this.props.handleEnd();
+                        this.pitar();
+                        setTimeout(this.props.handleEnd, 500);
+
+
                     }
                     else {
 
@@ -111,10 +112,11 @@ class Timer extends Component {
                         minutos--;
 
                         segundos = 59;
+                        this.setState({ minutos: minutos, segundos: segundos });
+
                     }
 
                 }
-                this.setState({ minutos: minutos, segundos: segundos });
 
             }
         }, 1000);
@@ -141,7 +143,6 @@ class Timer extends Component {
         audio.pause();
 
         audio.currentTime = 0;
-
     }
 
     render() {
@@ -149,8 +150,6 @@ class Timer extends Component {
         var min = poner0(this.state.minutos);
 
         var seg = poner0(this.state.segundos);
-
-
 
         var tiempo = min + ":" + seg;
 
@@ -174,7 +173,7 @@ class Timer extends Component {
 
             {/*Etiqueta Audio*/}
 
-            <audio id="beep" src={audio} autoPlay={autoplay} />
+            <audio id="beep" src={audio} />
 
 
 

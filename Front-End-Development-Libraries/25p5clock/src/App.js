@@ -45,7 +45,9 @@ class App extends Component {
   //Se ejecuta cuando se acaba el temporizador
   finTimer() {
 
-    this.setState({ break: !this.state.break })
+    this.setState({ break: !this.state.break });
+
+    console.log("el timera  acabado");
   }
 
   //Desactivar botones
