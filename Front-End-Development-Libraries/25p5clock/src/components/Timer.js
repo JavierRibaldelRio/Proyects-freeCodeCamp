@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import poner0 from '../scripts/PonerCero';
 import TimerDashboard from './TimerDashboard';
 
-const INICIALSTATE = { parado: true, minutos: 0, segundos: 0 };     //dEFINE EL ESTADO INICIAL
+const INICIALSTATE = {
+    parado: true, minutos: 0, segundos: 0
+};     //dEFINE EL ESTADO INICIAL
 
 class Timer extends Component {
     constructor(props) {
@@ -154,18 +156,24 @@ class Timer extends Component {
         var tiempo = min + ":" + seg;
 
 
-        var autoplay = tiempo === "00:00";
-        //Almacena el audio
-
         const audio = require('../audio/beep.mp3');
 
-        return (<div>
+        var clases;
 
-            <div id='timer-label'>
+
+        if (this.state.minutos === 0 && this.state.segundos <= 10) {
+
+            clases = "rojo";
+
+        }
+
+        return (<div id='timer'>
+
+            <div id='timer-label' className={clases}>
                 {this.props.label}
             </div>
 
-            <div id='time-left'>
+            <div id='time-left' className={clases}  >
 
                 {tiempo}
             </div>

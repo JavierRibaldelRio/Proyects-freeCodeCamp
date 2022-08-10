@@ -75,12 +75,16 @@ class App extends Component {
     return (
       <div className="App">
 
+        <h1 id="titulo">Timer + break Clock</h1>
+
         <Selector tipo={'session'} tiempo={this.state.tSession} handleClick={this.fetchSession} desactivado={this.state.desactivado} />
 
         <Selector tipo={'break'} tiempo={this.state.tBreak} handleClick={this.fetchBreak} desactivado={this.state.desactivado} />
 
 
         <Timer label={timerLabel} minutos={timerMinutos} handleEnd={this.finTimer} reset={this.reset} invertirBotones={this.invertirBotones} />
+
+        <div id='creditos'>By <a href='https://github.com/JavierRibaldelRio' target="_blank">JavierRibaldelRio</a></div>
       </div>
     );
   }
