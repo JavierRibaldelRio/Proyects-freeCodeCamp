@@ -70,15 +70,15 @@ class Selector extends Component {
 
         return (
             // Es un grid que los pone en función dek css
-            <div className='selector'>
+            <div id={tipo} className='selector'>
 
                 {/* Etiquta  */}
                 <h2 id={idH2} className="label">{conH2}</h2>
 
                 {/* Botones  */}
 
-                <EditTimeButton nid={idIn} clases={clasesIn} handleClick={this.increment} desactivado={this.props.desactivado} />
-                <EditTimeButton nid={idDe} clases={clasesDe} handleClick={this.decrement} desactivado={this.props.desactivado} />
+                <EditTimeButton nid={idIn} clases={clasesIn + " botones"} handleClick={this.increment} desactivado={this.props.desactivado} />
+                <EditTimeButton nid={idDe} clases={clasesDe + " botones"} handleClick={this.decrement} desactivado={this.props.desactivado} />
 
                 <div id={idLe} className='length'>{this.props.tiempo}</div>
 

@@ -5,15 +5,21 @@
 
     grid-template-areas: "label label label"
         "decrement length increment";
+
+    align-items: center;
+
 }
 
 /* Cada uno de los botones con su area asignada */
 .decrement {
     grid-area: decrement;
+    justify-self: end;
+
 }
 
 .increment {
     grid-area: increment;
+    justify-self: start;
 }
 
 .length {
@@ -22,6 +28,7 @@
 
 .label {
     grid-area: label;
+    font-family: 'Roboto Mono', monospace;
 
 }
 
@@ -32,4 +39,7 @@
 
 /* Todos los botones sean de increment o dicrement */
 
-.button-dec-inc {}
+.button-dec-inc {
+
+    padding: 1vmin;
+}

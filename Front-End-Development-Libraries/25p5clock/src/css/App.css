@@ -1,4 +1,130 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Roboto+Mono&display=swap');
+
+:root {
+  --opuesto: #c08498;
+
+
 }
 
+body {
+  text-align: center;
+  background-color: rgb(101, 54, 131);
+
+
+  /* Para que todo el contenido este centrado */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'Noto Sans', sans-serif;
+
+}
+
+.App {
+
+  display: grid;
+
+  grid-template-areas: "titulo titulo titulo""session nada break""timer timer timer""creditos creditos creditos";
+
+  gap: 7vmin;
+
+  height: 95%;
+
+  background-color: rgb(133, 192, 172);
+
+  padding: 1vmax;
+
+  border-radius: 20%;
+
+
+}
+
+#titulo {
+
+  grid-area: titulo;
+
+  text-transform: capitalize;
+
+  font-weight: bolder;
+}
+
+#break {
+
+  grid-area: break;
+}
+
+#session {
+
+  grid-area: session;
+}
+
+#timer {
+
+  grid-area: timer;
+
+  font-size: 8vmin;
+}
+
+.button-dashboard {
+
+  font-size: 4vmin;
+
+  margin: 3vmin;
+
+  padding: 3vmin;
+}
+
+#creditos {
+
+  grid-area: creditos;
+}
+
+.botones {
+
+
+  background-color: var(--opuesto);
+
+  border: #d96e92 solid;
+
+  border-radius: 25%;
+
+  cursor: pointer;
+
+  -webkit-box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.73);
+  -moz-box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.73);
+  box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.73)
+}
+
+.botones:hover {
+
+  background-color: #a87888;
+  border-width: 0.5vmin;
+
+}
+
+.botones:active {
+  background-color: #763e51;
+
+  border: #734f5b solid;
+
+  border-radius: 25%;
+
+  color: grey;
+
+}
+
+#time-left {
+
+  font-family: 'Roboto Mono', monospace;
+}
+
+#timer-label::first-letter {
+
+
+  text-transform: capitalize;
+}
+
+.rojo {
+  color: red;
+}
