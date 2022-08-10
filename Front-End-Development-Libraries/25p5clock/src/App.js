@@ -75,7 +75,7 @@ class App extends Component {
     return (
       <div className="App">
 
-        <h1 id="titulo">Timer + break Clock</h1>
+        <h1 id="titulo">Session + Break Clock</h1>
 
         <Selector tipo={'session'} tiempo={this.state.tSession} handleClick={this.fetchSession} desactivado={this.state.desactivado} />
 
