@@ -1,0 +1,98 @@
+
+function checkCashRegister(price, cash, cid) {
+
+  var vueltas = [];    //Almacena las vuletas
+
+  //Almacena la cantidad que se va a pagar
+  let change = cash - price;
+
+  const dineroEnCaja = cid.reduce((sum, x) => {
+
+    return (sum * 1000 + x[1] * 1000) / 1000
+  }, 0);
+
+  if (dineroEnCaja < change) {
+    return { status: "INSUFFICIENT_FUNDS", change: [] };
+
+  } else if (dineroEnCaja === change) {
+    return { status: "CLOSED", change: cid };
+
+  }
+  //Almacena todas las equivalencias
+  const EQUIVALENCIAS = {
+
+    PENNY: 0.01,
+    NICKEL: 0.05,
+    DIME: 0.1,
+    QUARTER: 0.25,
+    ONE: 1,
+    FIVE: 5,
+    TEN: 10,
+    TWENTY: 20,
+    'ONE HUNDRED': 100
+
+
+  }
+  //Simpre que el cambio sea mayor que 0
+  while (0 != change) {
+    //Compruba con que monedas puedes devolver el cambio
+    function comprobarMonedasDisponibles() {
+
+      return Object.keys(EQUIVALENCIAS)     //Saca todolos valores de las equivalencias
+        .filter(x => cid.find(y => y[0] === x)[1] !== 0)  //Conserva los que en cid son mayor que son distintos de cero
+        .map(x => EQUIVALENCIAS[x])
+        .filter(x => x <= change);
+
+    }
+    //Elimina de cid el dinero substraido y lo añade a vueltas
+
+    const anyadirVueltas = (pos) => {
+      //Define el nombre de la moneda conla que estamos trabajando
+
+      console.log(pos);
+      const nombre = cid[pos][0];
+
+      //Alimina del cid la cantidad substraida
+      cid[pos][1] -= EQUIVALENCIAS[nombre];
+
+      //Le resta al cambio la 
+
+      change = (change * 1000 - 1000 * EQUIVALENCIAS[nombre]) / 1000;
+
+
+      //Comprobamos si esta moneda ya esta incluida en el cambio, 
+      if (vueltas.some((x) => { return x[0] === nombre })) {
+
+        //Si esta incluida la buscamos
+
+        vueltas[0][1] += EQUIVALENCIAS[nombre];
+
+
+
+
+      } else {
+
+        vueltas.unshift([nombre, EQUIVALENCIAS[nombre]]);
+
+      }
+      //Devuelve la casilla del array a integrar
+    }
+    //Comprobar si el valor es muy grande
+    var posiblesMonedas = comprobarMonedasDisponibles();
+
+    if (posiblesMonedas.length === 0) {
+      return { status: "INSUFFICIENT_FUNDS", change: [] };
+    }
+
+    anyadirVueltas(posiblesMonedas.length - 1);
+
+  }
+
+
+  //Crea el objeto que se devuleve
+
+  return { status: "OPEN", change: vueltas.reverse() };
+}
+console.log(
+  checkCashRegister(19.5, 20, [["PENNY", 0.01], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 1], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]])
+);

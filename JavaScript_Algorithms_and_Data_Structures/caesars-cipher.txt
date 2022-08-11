@@ -1,0 +1,23 @@
+function rot13(str) {
+  return str.split('').map((x) => {
+
+console.log(!x.match(/[a-z]/i));
+
+    if(!x.match(/[a-z]/i)){
+      return x
+    } else{
+
+      //Pasa el carácter a unicode
+      var uni = x.charCodeAt();
+console.log(uni);
+      const valorASumar = (uni< 78)? 13 : -13;
+console.log(uni + valorASumar)
+      return String.fromCharCode(uni + valorASumar);
+
+    }
+
+  }).join('');
+}
+
+console.log(
+rot13("SERR CVMMN!"));

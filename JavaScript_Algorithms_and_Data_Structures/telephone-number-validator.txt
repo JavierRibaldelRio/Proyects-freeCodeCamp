@@ -1,0 +1,20 @@
+function telephoneCheck(str) {
+
+if(str.includes('(')){
+
+  if(str.includes(')')){
+    return /^1?\s?\(\d{3}\)\s?\d{3}-\d{4}$/.test(str);
+  }
+
+  else{
+    return false;
+  }
+}
+
+  return /^(1\s)?\d{3}(\s|-)\d{3}(\s|-)\d{4}$|^\d{10}$/
+  
+  
+  .test(str);
+}
+console.log(
+telephoneCheck("(555)5(55?)-5555"));

@@ -1,0 +1,24 @@
+function palindrome(str) {
+
+  var arrayOri = str
+  
+  //Partimos por la mitad
+  .split('').
+  
+  //filtramos todo lo que sean letras
+  filter((x)=>{
+
+    return x.match(/[a-z0-9]/i);
+  })
+  
+  .map((x) => {return x.toLowerCase();});
+
+  var copiaArray = [...arrayOri].reverse();
+
+  console.log(arrayOri);
+
+  return  JSON.stringify(arrayOri) === JSON.stringify(copiaArray);
+}
+
+console.log(
+palindrome("A man, a plan, a canal. Panama"));
