@@ -1,0 +1,23 @@
+body{
+  
+  text-align: center;
+  font-family: Arial;
+  background-color: lightblue;
+}
+input{
+  
+  margin:5px;
+}
+
+label{
+  margin:10px;
+  padding: 10px;
+}
+
+#submit{
+  
+  padding: 40px;
+  font-size: 28px;
+  border-radius: 50%;
+  
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Technical Documentation Page</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<nav id="navbar">
+    <header>C++</header>
+    
+    <ul id="lista">
+      <li><a class="nav-link" href="#Que_es_C++">Que es C++</a></li>
+      
+        
+        <li><a class="nav-link" href="#Como_empezar_con_C++">Como empezar con C++</a></li>
+              <li><a class="nav-link" href="#Definir_variables">Definir variables</a></li>
+       <li><a class="nav-link" href="#Cout_y_Cin">Cout y Cin</a></li>
+       <li><a class="nav-link" href="#If_y_Else">If y Else</a></li>
+
+      </ul>
+  </nav>
+
+<main id="main-doc">
+
+
+  <section class="main-section" id="Que_es_C++">
+    
+    <header>Que es C++</header>
+    
+    <p>C++ es un lenguaje de programación de bajo nivel basado en C. Está caracterizado por incorporar los objetos y los strings, el tipo de variable que almacena textos. Un ejemplo de programa construido en C++ es google, el buscador. </p>
+    
+    <h3>Lenguajes de programación similares a C++</h3>
+    
+       
+    <ul>
+      <li>C#</li>
+      <li>C</li>
+      <li>Java</li>
+      <li>JavaScript</li>
+      <li>Rust</li>
+      
+    </section>
+  <section class="main-section" id="Como_empezar_con_C++">
+    
+        <header>Como empezar con C++</header>
+    
+    <p>Para empezar hay que incluir algunas librerias y otras cosas imprescindibles</p>
+    
+    <code>
+      #include "iostream"<br>
+      
+      using namespace std; <br>
+      
+      int main()<br>
+{<br>
+      return 0; <br>
+}
+
+    </code>
+    
+    <p>Estas lineas hacen que se pueda ejecutar el código, el return 0 indica que ahí se acaba el programa. La primera linea indica que librerias se han de utilizar</p>
+
+  </section>
+  <section class="main-section" id="Definir_variables">
+    
+    
+    
+        <header>Definir variables</header>
+    
+    <p>Definir variables es una parte fundamental de la programación, hay que hacelro así:</p>
+      
+      <code>
+        
+        int nombreVariable = 23;  //El int indica que el tipo de variable es un numero
+        <br>
+        nombreVariable = 2;       //Cambiar una variable
+        
+              </code>
+
+        <p>Hay muchos tipos de variables: char(caracteres), float(decimales), strings(texto)....
+          
+        <p>Si pones el nombre de la variable y ; la definiras con valores basura</p>
+        
+        <code> float nombre;</code>
+        
+
+  </section>
+  <section class="main-section" id="Cout_y_Cin">  <header>Cout y Cin </header></section>
+  
+  <p>Cout se utiliza para imprimir valores por pantalla y, Cin se utiliza para coger valores por pantalla</p>
+  
+  <p>Además hay lenguajes de programación escritos en C++
+  
+  <code>
+    
+    cout << "Inserte su edad"; //Saca por pantalla el texto <br>
+    
+    int edad = 0;     //Define la variable con valor de 0 <bR>
+    
+    cin >> edad; //Recoge el valor que el usuario introduzca <br>
+  </code>
+    
+    <p>También puedes usar cout para imprimir variables</p>
+  <section class="main-section" id="If_y_Else"> <header>If y Else</header> <p>Así se hacen las condicionales de C++</p> 
+    
+    <code>
+      
+      if(7 > 4)<br>{
+      <br>Soy mayor <br>
+      }<br>else <br>{
+      <br> Esto no puede pasar <br>
+      }<br>
+      
+          </code>
+
+      
+      <p>También existe la orden de else if</p>
+    
+     <code>
+      
+      if(7 > 4)<br>{
+      <br>Soy mayor <br>
+      }<br>else if (7 < 4) <br>{
+      <br> Esto no puede pasar <br>
+      }<br>
+      
+          </code>
+      
+              <p></p><p></p><p></p>
+
+    </section>
+
+</main>
+<!-- partial -->
+  <script src='https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

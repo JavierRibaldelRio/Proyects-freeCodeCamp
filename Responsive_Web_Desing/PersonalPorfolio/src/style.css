@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
+
+#navbar {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  background-color: var(--amazon);
+}
+
+:root {
+  /* CSS HEX */
+  --silver: #c2c1c2ff;
+  --dark-purple: #42213dff;
+  --amazon: #4a7c59ff;
+  --laser-lemon: #fffd77ff;
+  --msu-green: #31493cff;
+
+  margin: 0;
+}
+
+#navbar a {
+  margin: 20px;
+  text-decoration: none;
+  color: black;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Nunito, Arial;
+}
+
+#welcome-section {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--dark-purple);
+  color: var(--silver);
+}
+
+#ama {
+  background-color: var(--laser-lemon);
+  display:flex;
+  padding: 30px;
+  flex-direction: column;
+  align-items:center;
+}
+#ama h2{
+  
+  margin: 20px;
+}
+#projects {
+  margin: 0 auto;
+  width: 75%;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 20px;
+
+  justify-content: center;
+
+  aling-items: center;
+  text-align: center;
+}
+
+#projects a{
+  
+  color: #000;
+  text-decoration: none;
+}
+
+#projects div{
+   border: solid black 1px;
+  padding: 25px;
+    background-color: var(--amazon);
+}
+
+@media (max-width: 900px) {
+  #navbar {
+    position: relative;
+  }
+}
+
+a{display: inline;}
+
+#contact{
+  color: var(--dark-purple);
+  background-color: var(--msu-green);
+  
+  display:flex;
+  height: 50vh; /*Para hacer que ocupe la mitad de la pantalla*/
+  width: 100%;
+  flex-direction: column;
+  justify-content:center;
+    align-items: center;
+}
+
+#git{
+  
+  max-height: 100%
+    
+    width: auto;
+  
+}

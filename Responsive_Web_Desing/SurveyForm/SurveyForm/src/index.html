@@ -1,0 +1,51 @@
+<main>
+  <h1 id="title">Mi Formulario</h1>
+
+  <p id="description">Este es el formulario de inscripción para mi gran fiensta de cumpleaños en Marte este próximo Jueves 42 de Mayo del año 2000856-M d. R. </p>
+  <form id="survey-form">
+    <label for="name" id="name-label">
+      Nombre: <input type="text" id="name" placeholder="Su nombre" required>
+    </label>
+
+    <br>
+
+    <label for="email" id="email-label">
+      Correo electronico: <input type="email" id="email" placeholder="sucorreo@sucorreo.suc" required>
+    </label>
+    
+    <br>
+    
+    <label for= "number" id="number-label">
+      Edad: <input required placeholder="56" type="number" id="number" min=18 max=90>
+    </label>
+    <br>
+    
+    Sabor de la tarta: 
+    <select id="dropdown">
+      
+      <option>Chocolate</option>
+      <option>Fresa</option>
+      <option>Queso</option>
+    </select>
+    <br>
+    Bebida: <br>
+    <input type="radio" name="bebida" value="agua" >Agua
+    <input type="radio" name="bebida" value="nestea"> Nestea
+    <input type="radio" name="bebida" value="fanta"> Fanta
+    <br><br>
+    
+    Sevicios:<br> 
+    <input type="checkbox" name="ser" value="Coche">Aparcamiento <br>
+    <input type="checkbox" name="ser" value="Ventana">Ventana <br>
+    <br>
+    
+    Alergias, enfermedades...<br>
+    <textarea>
+      
+    </textarea>
+    <br>
+    
+    <input id="submit" type="submit" value="Enviar"/>
+  </form>
+
+</main>
