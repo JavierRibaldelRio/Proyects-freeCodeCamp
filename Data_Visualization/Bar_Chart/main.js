@@ -3,13 +3,16 @@
 
 //Crea el tooltip
 
+//Formatea el id cambiando el guion por un punto
+var formatearID = (gdp) => "ID" + gdp.toString().replace('.', '-');
+
 
 d3.json('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json')
 
     .then((data) => {
 
         //Declaración de las variables del tamaño
-        const [h, w] = [500, 1000];
+        const [h, w] = [500, 1300];
 
         const padding = 60;         //Declaración de padding
 
@@ -85,9 +88,6 @@ d3.json('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/mas
             .attr('id', 'x-axis')    //Añade la id
             .call(xAxis);
 
-        //Añadir los datos al gráfico
-        var indi;
-
         var bar = svg.selectAll("rect")
             .data(data.data)   //Coge los datos
             .enter()            //Inicializa com el bucle
@@ -95,38 +95,38 @@ d3.json('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/mas
             //Atributos
             //Tamaño y posición
             .attr('y', (d) => yScale(d[1])) //Y valor
-            .attr('x', (d, i) => {
-                indi = i;
-                return xScale(arrayFechas[i])
-
-            })  //X lo sabemos poe el año  
-            .attr('width', tamanyoColumnas)
+            .attr('x', (d, i) => xScale(arrayFechas[i]))  //X lo sabemos poe el año  
+            .attr('width', tamanyoColumnas - 1.75)
             .attr("height", (d) => h - yScale(d[1]) - padding)
             //.attr("height", (d) => d[1])
 
 
             .attr("fill", "blue")       //Rellenamos de azul el contenido
             .attr('class', 'bar')
+            .attr('id', (d) => formatearID(d[1]))
             .attr('data-date', (d) => d[0])
             .attr('data-gdp', (d) => d[1])    //Clase
 
             .on('mouseover', (event, d) => {
-
                 tooltip.style('opacity', 1)
-                    .attr('y', yScale(d[1] / 2)) //Y valor
-                    .attr('x', xScale(arrayFechas[indi]))
-
+                    .attr('y', yScale(d[1] + 2000)) //Y valor
+                    .attr('x', xScale(new Date(d[0])) - 250)
                     .attr('data-date', d[0])
+                    .text("DATE: " + d[0] + "\nGDP: " + d[1])
+                    .attr("fill", "orange");
+
+                d3.select(`#${formatearID(d[1])}`).attr("fill", "orange");
 
 
-                    .text("Heldo")
-            }).on('mouseout', () => {
+
+            })
+            .on('mouseout', (event, d) => {
 
                 tooltip.style('opacity', 0)
 
-            })
-        ///////////////////////////
+                d3.select(`#${formatearID(d[1])}`).attr("fill", "blue");
 
 
+            });
     });
 

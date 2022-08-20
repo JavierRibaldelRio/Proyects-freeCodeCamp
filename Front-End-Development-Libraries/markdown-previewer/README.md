@@ -41,7 +41,7 @@ $ npm start
 
 ### FCC Tests
 
-In the webpage in the top right corner you will find the test utility, to use it you have to select Markdown-Previewer an then press run tests.
+In the webpage in the top right corner you will f ind the test utility, to use it you have to select Markdown-Previewer an then press run tests.
 
 ![Screenshot of how to run the tests](public/readme_pic.png)
 
