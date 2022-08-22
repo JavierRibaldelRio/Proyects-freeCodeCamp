@@ -131,7 +131,7 @@ d3.json('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/mas
         var seccionesLeyenda = [
             { color: 'red', y: posicionInicial, text: 'Without doping allegations' },
             { color: 'green', y: posicionInicial + 30, text: 'With doping allegations' }
-        ]
+        ];
 
         //Funcion que crea un bloqueen la leyenda
         var crearBloqueLeyenda = (s) => {
