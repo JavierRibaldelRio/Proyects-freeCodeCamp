@@ -105,7 +105,7 @@ d3.json('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/mas
                 .attr('y', (yScale(times[i]) + 5))          //Y 
                 .attr('x', (xScale(anyos[i]) + 20))         //X 
                 .attr('data-year', dot.attr('data-xvalue')) //Año
-                .text(texto)                                //Texto
+                .text(texto);                             //Texto
         }
 
         function handleMouseOut(event, d) {
