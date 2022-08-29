@@ -119,7 +119,40 @@ d3.json('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/mas
             .attr('data-temp', (d, i) => data.monthlyVariance[i].varianza + baseTemperature)
             .attr('fill', (d) => escalaColor(d.varianza));
 
+        //leyenda
 
+
+        var lw = 350, lh = 50, lpadding = 20;
+
+        var lsvg = d3.select('footer')
+            .append('svg')
+            .attr('width', lw)
+            .attr('height', lh);
+
+        const lin = d3.scaleLinear()
+            .domain([d3.min(datos, (d) => d.varianza) - 1, d3.max(datos, (d) => d.varianza) + 2])
+            .range([padding, lw - padding]);
+
+        const leyenda = d3.axisBottom(lin).ticks(3).tickFormat(d3.format('+0'));
+
+        const sampleLeyenda = [d3.min(datos, (d) => d.varianza), d3.max(datos, (d) => d.varianza), 0, (d3.min(datos, (d) => d.varianza)) / 2, (d3.max(datos, (d) => d.varianza)) / 2];
+
+        console.log('sampleLeyenda :>> ', sampleLeyenda);
+
+
+        lsvg.append("g")
+            .attr("transform", "translate(0," + (lh - lpadding) + ")")
+            .call(leyenda);
+
+        lsvg.selectAll('rect')
+            .data(sampleLeyenda)
+            .enter()
+            .append('rect')
+            .attr('y', 0)
+            .attr('x', (d) => lin(d))
+            .attr('height', 30)
+            .attr('width', 30)
+            .attr('fill', (d) => escalaColor(d));
 
 
 
