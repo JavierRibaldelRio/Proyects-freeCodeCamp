@@ -1,7 +1,9 @@
 
+
+const mesesDelAnyo = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
 //Fetch a la api
 d3.json('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/global-temperature.json')
-
     .then((data) => {
 
         //VAriables
@@ -40,10 +42,14 @@ d3.json('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/mas
         const rectWidth = 5;
 
         const rectHeight = 22;
+
+        //Define el svg
         var svg = d3.select('main').
             append('svg')
             .attr('height', h)
             .attr('width', w);
+
+        //Define el tooltip
 
 
         d3.select('#cabeceras')
@@ -93,17 +99,10 @@ d3.json('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/mas
         //Oy
         const yAxis = d3.axisLeft(yScale).tickFormat(formatoMes);
 
-        console.log('yAxis :>> ', yAxis);
-
-
         svg.append('g')     //Añade la g, necesaria para los ejes
             .attr("transform", "translate(" + padding + ',0)')
             .attr('id', 'y-axis')    //Añade la id
             .call(yAxis);
-
-        console.log(escalaColor(1));
-
-
 
         svg.selectAll('rect')
             .data(datos)
@@ -117,33 +116,78 @@ d3.json('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/mas
             .attr('data-month', (d, i) => data.monthlyVariance[i].month - 1)
             .attr('data-year', (d, i) => data.monthlyVariance[i].year)
             .attr('data-temp', (d, i) => data.monthlyVariance[i].varianza + baseTemperature)
-            .attr('fill', (d) => escalaColor(d.varianza));
+            .attr('fill', (d) => escalaColor(d.varianza))
+            .on('mouseover', handleMouseOver)                           //Cuando el ratón este encima
+            .on('mouseout', handleMouseOut);
+
+        var tooltip = d3.select('svg')
+            .append('text')
+            .attr('id', 'tooltip')
+            .style('opacity', 0)
+            .attr('height', 40)
+            .attr('width', 60)
+            .attr('fill', 'blue');
+
+        function handleMouseOver(event, d) {
+
+
+            //Obtine el elemento actual
+            const rect = d3.select(event.currentTarget);
+
+            const texto = mesesDelAnyo[rect.attr('data-month')] + ' of ' + d.anyo + ": " + d.varianza + "º";
+
+            console.log('texto :>> ', texto);
+            rect.attr('stroke', '#000');                          //Agranda el círculo
+
+
+
+            tooltip.style('opacity', 1)                     //Hace sólido el tooltip
+                .attr('y', rect.attr('y'))          //Y 
+                .attr('x', (rect.attr('x') + 20))         //X )
+                .attr('data-year', rect.attr('data-year')) //Año
+                .text(texto);                             //Texto
+        }
+
+        function handleMouseOut(event, d) {
+
+            //Almacena el punto
+            const rect = d3.select(event.currentTarget);
+
+            rect.attr('stroke', 'none');                          //Agranda el círculo
+
+
+            tooltip.style('opacity', 0);            //Oculta el tooltip
+        }
+
 
         //leyenda
 
-
+        //Dimensiones
         var lw = 350, lh = 50, lpadding = 20;
 
+        //Nuevo svg
         var lsvg = d3.select('footer')
             .append('svg')
             .attr('width', lw)
             .attr('height', lh);
 
+        //Escala linear par ala leyenda
         const lin = d3.scaleLinear()
             .domain([d3.min(datos, (d) => d.varianza) - 1, d3.max(datos, (d) => d.varianza) + 2])
             .range([padding, lw - padding]);
 
+        //Eje de la leyenda
         const leyenda = d3.axisBottom(lin).ticks(3).tickFormat(d3.format('+0'));
 
+        //Valores de pruba para la leyenda
         const sampleLeyenda = [d3.min(datos, (d) => d.varianza), d3.max(datos, (d) => d.varianza), 0, (d3.min(datos, (d) => d.varianza)) / 2, (d3.max(datos, (d) => d.varianza)) / 2];
 
-        console.log('sampleLeyenda :>> ', sampleLeyenda);
-
-
+        //Añade el eje
         lsvg.append("g")
             .attr("transform", "translate(0," + (lh - lpadding) + ")")
             .call(leyenda);
 
+        //Añade los samples
         lsvg.selectAll('rect')
             .data(sampleLeyenda)
             .enter()
@@ -153,7 +197,6 @@ d3.json('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/mas
             .attr('height', 30)
             .attr('width', 30)
             .attr('fill', (d) => escalaColor(d));
-
 
 
     });
