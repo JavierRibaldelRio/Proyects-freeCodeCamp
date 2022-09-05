@@ -108,6 +108,12 @@ Promise.all([
 
                 return condado[0].bachelorsOrHigher;
             })
+            .attr('data-area-name', (d) => {
+                var condado = datos.filter(x => x.fips === d.id);
+
+                return condado[0].area_name;
+
+            })
             .on('mouseover', handleMouseOver)                           //Cuando el ratón este encima
             .on('mouseout', handleMouseOut);
 
@@ -127,13 +133,15 @@ Promise.all([
             //Obtine el elemento actual
             const condado = d3.select(event.currentTarget);
 
-            const texto = "Hola mi nombre es Javier Ribal del Río Sanchis Peris Barrera Casado Cabrera Laimuns";
+            const procentaje = condado.attr('data-education')
+
+            const texto = condado.attr('data-area-name') + ": " + procentaje + "%";
 
             tooltip.style('opacity', 1)                     //Hace sólido el tooltip
                 .style('top', event.pageY - 28 + 'px')          //Y 
                 .style('left', event.pageX + 10 + 'px')        //X )
-                .attr('data-education', condado.attr('data-education')) //Año
-                .text(texto);                             //Texto
+                .attr('data-education', procentaje) //Año
+                .html(texto);                             //Texto
         }
 
         function handleMouseOut() {
@@ -142,13 +150,4 @@ Promise.all([
         }
 
     });
-
-// var tooltip = d3.select('svg')
-//     .append('text')
-//     .attr('id', 'tooltip')
-//     .style('opacity', 0)
-//     .attr('height', 40)
-//     .attr('width', 60)
-//     .style('z-index', 99)
-//     .attr('fill', 'black');
 
