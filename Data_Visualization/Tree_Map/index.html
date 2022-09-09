@@ -22,18 +22,32 @@
             justify-content: center;
 
             align-items: center;
-
-
         }
 
         h1 {
-
-            font-size: 40px;
+            font-size: 30px;
+            margin: 0;
+            text-align: center;
         }
 
         svg {
 
-            background-color: green;
+            user-select: none;
+
+            cursor: default;
+        }
+
+        #tooltip {
+
+            background-color: white;
+
+            padding: 12px;
+
+            border: black solid 2px;
+
+            border-radius: 15px;
+
+
         }
     </style>
 
@@ -45,10 +59,11 @@
 
     <body>
 
+        <header>
+            <h1 id="title">TREE MAP</h1>
 
-        <h1 id="title">TREE MAP</h1>
-
-        <h2 id="description"></h2>
+            <h2 id="description"></h2>
+        </header>
 
         <main>
 
