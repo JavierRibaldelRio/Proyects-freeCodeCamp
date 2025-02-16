@@ -52,5 +52,6 @@ def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
         # Checks if all the excepted balls are present in the extractions
         if all([extracted_balls.count(color) >= repetitions for color, repetitions in expected_balls.items()]):
             success +=1
+            
     # Uses Laplace's law to calculate the probability
     return success/num_experiments
